@@ -1,6 +1,6 @@
-const express = require('express')
+const express = require('express');
 
-const connectDb = require('./config/db.js')
+const connectDb = require('./config/db.js');
 
 const User = require('./routes/user.js');
 
