@@ -1,6 +1,6 @@
-const express = require('express')
+const express = require('express');
 
-const connectDb = require('./config/db.js')
+const connectDb = require('./config/db.js');
 
 const User = require('./routes/user.js');
 
@@ -10,7 +10,7 @@ app.use(express.json())
 
 connectDb()
 
-app.use('/', User)
+app.use('/api/', User)
 
 app.listen( 8080, () =>{
 	console.log('server running')

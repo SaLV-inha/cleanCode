@@ -1,8 +1,0 @@
-{
-    "compilerOptions": {
-        "outDir": "./dist/",
-        "target": "ES2024",
-        "module": "CommonJS",
-        "allowJs": true
-    }
-}
