@@ -1,12 +1,13 @@
 const User = require('../../models/user')
 
-async function createUser(params) {
+async function createUser( req, res) {
     try {
+        const params = { ...req.body }
         const user = new User(params)
         await user.save()
-        return(user.id)
+        res.status(200).json(user.id)
     } catch (error) {
-        return(error)
+        res.status(500).json(error.message)
     }
 }
 

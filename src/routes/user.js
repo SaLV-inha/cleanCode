@@ -1,49 +1,16 @@
 const express = require('express')
-
 const router = express.Router()
 
-const { getUsers, createNewUser } = require('../userCases/userController.js')
+const { getUser, getUserById, createUser, deleteUser, updateUser } = require('../userCases/userController.js')
 
-router.get('/', async( req, res ) =>{
-	try {
-		const users = await getUsers()
-		res.send(users)
-	} catch (error) {
-		res.send(error)
-	}
-})
+router.get('/users', getUser )
 
-router.post('/createuser', async (req, res)=>{
-	try {
-		const user = await createNewUser({...req.body})
-		console.log(user)
-		res.send(user)
-	} catch (error) {
-		res.send(error.message)
-		
-	}
-})
+router.get('/users/:id', getUserById )
 
-// router.delete('/delete', async (req, res)=>{
-// 	try {
-// 		const { name } = req.body;
-// 		const userToDelete = await User.findOneAndDelete({name:name});
-// 		if (!userToDelete) res.status(404).send("User Not Found")
-// 		res.send(`User called ${name} is deleted`)
-// 	} catch (error) {
-// 		res.send(error.message)	
-// 	}
-// })
+router.post('/users',createUser )
 
-// router.patch('/:id/path', async(req, res)=>{
-// 	try {
-// 		const { id } = req.params
-// 		const userUpdated = await User.updateOne({_id:id},{$set:{...req.body}})
-// 		if (!userUpdated) res.status(404).send("User Not Found")
-// 		res.send(userUpdated)
-// 	} catch (error) {
-// 		res.send(error.message)
-// 	}
-// })
+router.delete('/users/:id', deleteUser )
+
+router.patch('/users/:id', updateUser )
 
 module.exports = router;
