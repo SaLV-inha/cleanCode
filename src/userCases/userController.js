@@ -1,19 +1,15 @@
 
-const getUser = require('./getUsers/getUsers');
+const { getUser, getUserById } = require('./getUsers/getUsers');
 const createUser = require('./createUser/createUser');
+const deleteUser  = require('./deleteUser/deleteUser');
+const updateUser  = require('./updateUser/updateUser');
 
-async function getUsers() {
-    let x = await getUser()
-    return x;
-}
-
-async function createNewUser(params) {
-    let x = await createUser(params)
-    return x;
-}
 
 module.exports = {
-    getUsers,
-    createNewUser
+    getUser,
+    createUser,
+    deleteUser,
+    getUserById,
+    updateUser
 }
 

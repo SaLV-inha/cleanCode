@@ -10,7 +10,7 @@ app.use(express.json())
 
 connectDb()
 
-app.use('/', User)
+app.use('/api/', User)
 
 app.listen( 8080, () =>{
 	console.log('server running')
